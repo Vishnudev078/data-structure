@@ -1,0 +1,61 @@
+import java.util.*;
+import java.lang.*;
+//derived classes
+class Employee
+{
+int a;
+int eno,bpay;
+String n;
+float da,hra,gsal;
+void getdata(int eno,String n, int bpay)
+{
+ this.eno=eno;
+ this.n=n;
+ this.bpay=bpay;
+}
+void calculate()
+{
+ da=(bpay*20)/100;
+ hra=(bpay*5)/100;
+ gsal=bpay+da+hra;
+}
+void printdata()
+{
+ System.out.println("Name :" +n);
+ System.out.println("Employee Number :" +eno);
+ System.out.println("Basic Pay :" +bpay);
+ System.out.println("DA :" +da);
+ System.out.println("HRA :" +hra);
+ System.out.println("Grow Salary :" +gsal);
+}
+}
+//main function
+class nemployee
+{
+ public static void main(String args[])
+ {
+   Scanner s=new Scanner(System.in);
+   System.out.println("Enter the number of Employees : \t");
+   int  a=s.nextInt();
+   System.out.println("Enter the Details of Employee ");
+   Employee e1[]=new Employee[a];
+   int eno,bpay;
+   String n;
+   float da,hra,gsal;
+   for(int i=0;i<a;i++)
+   {
+    System.out.println("Enter Employee no : \t");
+    eno=s.nextInt();
+    System.out.println("Enter Employee Name : \t");
+    n=s.next();
+    System.out.println("Basic Pay : \t");
+    bpay=s.nextInt();
+    e1[i]=new Employee();
+    e1[i].getdata(eno,n,bpay);
+    e1[i].calculate();
+    e1[i].printdata();
+   }
+ }
+}
+
+
