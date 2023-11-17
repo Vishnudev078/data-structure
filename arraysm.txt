@@ -1,0 +1,31 @@
+import java.util.*;
+class arraysm
+{
+  public static void main(String args[])
+  {
+    int even=0,odd=0;
+    System.out.println("Enter the limit of array");
+    Scanner s = new Scanner(System.in);
+    int n=s.nextInt();
+    System.out.println("Enter the elemens of the array");
+    int a[]= new int[n];
+    for(int i=0;i<n;i++)
+    {
+      a[i]=s.nextInt();
+    }
+    for(int i=0;i<n;i++)
+    {
+      if(a[i]%2==0)
+      {
+        even=even+a[i];
+      }
+      else
+      {
+        odd=odd+a[i];
+      }
+    }
+    System.out.println("Sum of Even no. :"+even+" Sum of Odd no. :"+odd);
+  }
+}
+
+
