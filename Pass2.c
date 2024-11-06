@@ -124,4 +124,60 @@ int main() {
                 fprintf(fp4, "^%s%d", code[j], add);
             }
         }
-        fscanf(fp3, "%d
+        fscanf(fp3, "%d%s%s%s", &address, label, opcode, operand);
+    }
+
+    fprintf(fp1, "%d\t%s\t%s\t%s\n", address, label, opcode, operand);
+    fprintf(fp4, "\nE^00%d", start);
+
+    fclose(fp4);
+    fclose(fp3);
+    fclose(fp2);
+    fclose(fp1);
+
+    display();
+
+    return 0;
+}
+
+void display() {
+    char ch;
+    FILE *fp1, *fp2, *fp3, *fp4;
+
+    printf("\nIntermediate file is converted into object code");
+    printf("\n\nThe contents of Intermediate file:\n\n");
+    fp3 = fopen("intermediate.txt", "r");
+    ch = fgetc(fp3);
+    while (ch != EOF) {
+        printf("%c", ch);
+        ch = fgetc(fp3);
+    }
+    fclose(fp3);
+
+    printf("\n\nThe contents of Symbol Table : \n\n");
+    fp2 = fopen("symtab.txt", "r");
+    ch = fgetc(fp2);
+    while (ch != EOF) {
+        printf("%c", ch);
+        ch = fgetc(fp2);
+    }
+    fclose(fp2);
+
+    printf("\n\nThe contents of Output file: \n\n");
+    fp1 = fopen("output.txt", "r");
+    ch = fgetc(fp1);
+    while (ch != EOF) {
+        printf("%c", ch);
+        ch = fgetc(fp1);
+    }
+    fclose(fp1);
+
+    printf("\n\nThe contents of Object code file: \n\n");
+    fp4 = fopen("objcode.txt", "r");
+    ch = fgetc(fp4);
+    while (ch != EOF) {
+        printf("%c", ch);
+        ch = fgetc(fp4);
+    }
+    fclose(fp4);
+}
